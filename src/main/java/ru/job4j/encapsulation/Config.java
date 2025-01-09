@@ -14,7 +14,7 @@ public class Config {
         System.out.println(position);
     }
 
-    protected String getProperty(String key) {
+    public String getProperty(String key) {
         return search(key);
     }
 
