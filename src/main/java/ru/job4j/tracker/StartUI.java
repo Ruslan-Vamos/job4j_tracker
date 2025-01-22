@@ -27,8 +27,6 @@ public class StartUI {
                 } else {
                     System.out.println("Хранилище еще не содержит заявок.");
                 }
-            } else if (select == 6) {
-                run = false;
             } else if (select == 2) {
                 System.out.println("=== Редактирование заявки ===");
                 System.out.println("Введите id заявки, которую хотите заменить:");
@@ -59,8 +57,21 @@ public class StartUI {
                 } else {
                     System.out.println("Заявка с введенным id: " + id + " не найдена.");
                 }
-            } else {
-                System.out.println("Пользователь выбрал " + select);
+            } else if (select == 5) {
+                System.out.println("=== Вывод заявок по имени ===");
+                System.out.println("Введите имя заявки:");
+                String name = scanner.nextLine();
+                Item[] items = tracker.findByName(name);
+                if (items.length > 0) {
+                    System.out.println("Найденные заявки:");
+                    for (Item item : items) {
+                        System.out.println(item);
+                    }
+                } else {
+                    System.out.println("Заявки с именем " + name + " не найдены.");
+                }
+            } else if (select == 6) {
+                run = false;
             }
         }
     }
