@@ -4,7 +4,7 @@ public class Bus implements Transport {
 
     @Override
     public void move() {
-        System.out.println("Автобус едет.");
+        System.out.println("Автобус едет с остановками.");
     }
 
     @Override
@@ -14,6 +14,6 @@ public class Bus implements Transport {
 
     @Override
     public int refuel(int fuel) {
-        return fuel;
+        return fuel * 50;
     }
 }
