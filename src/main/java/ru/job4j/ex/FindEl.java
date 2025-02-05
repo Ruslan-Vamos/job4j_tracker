@@ -15,6 +15,29 @@ public class FindEl {
         return result;
     }
 
+    public static boolean sent(String message, String[] abuses) throws ElementAbuseException {
+        for (int i = 0; i < abuses.length; i++) {
+            if (message.equals(abuses[i])) {
+                throw new ElementAbuseException("Element found in blacklist");
+            }
+        }
+        return true;
+    }
+
+    public static void process(String[] values, String key, String[] abuses) {
+        try {
+            if (indexOf(values, key) != -1) {
+                sent(key, abuses);
+            }
+        } catch (ElementAbuseException ea) {
+            ea.printStackTrace();
+        } catch (ElementNotFoundException en) {
+            en.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void main(String[] args) {
         try {
             indexOf(new String[]{
